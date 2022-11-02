@@ -26,7 +26,7 @@ public  class home {
                 if(radSpania.isSelected())
                     radBulgaria.setSelected(false);
                 radGermania.setSelected(false);
-
+                System.out.println("Ati selectionat destinatia: 'Spania'");
 
             }
         });
@@ -37,6 +37,7 @@ public  class home {
                 if(radBulgaria.isSelected())
                     radSpania.setSelected(false);
                 radGermania.setSelected(false);
+                System.out.println("Ati selectionat destinatia: 'Bulgaria'");
             }
         });
         radGermania.addActionListener(new ActionListener() {
@@ -45,6 +46,7 @@ public  class home {
                 if(radGermania.isSelected())
                     radBulgaria.setSelected(false);
                 radSpania.setSelected(false);
+                System.out.println("Ati selectionat destinatia: 'Germania'");
             }
         });
         btnEnter.addActionListener(new ActionListener() {
@@ -84,12 +86,14 @@ public  class home {
                 txtTax.setText(df.format(tva));
                 txtSub.setText(df.format(subtotal));
                 txtTotal.setText(df.format(total));
+                System.out.println("Ati actionat butonul: 'Enter'");
             }
         });
         btnExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
+                System.out.println("Ati actionat butonul: 'Exit'");
             }
         });
         btnClear.addActionListener(new ActionListener() {
@@ -104,6 +108,7 @@ public  class home {
                 txtTotal.setText("");
                 txtSub.setText("");
                 txtTax.setText("");
+                System.out.println("Ati actionat butonul: 'Clear'");
 
             }
         });
