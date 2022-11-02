@@ -36,7 +36,7 @@ public class login {
 
                 }
                 else {
-                    JOptionPane.showMessageDialog(null,"Parola o fost introdusa gresit or username-ul este incorect");
+                    JOptionPane.showMessageDialog(null,"Parola a fost introdusa gresit sau username-ul este incorect");
                 }
             }
         });
