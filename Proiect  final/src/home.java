@@ -112,6 +112,9 @@ public  class home {
                 txtTotal.setText("");
                 txtSub.setText("");
                 txtTax.setText("");
+                subTotal = 0;
+                tva = 0;
+                total = 0;
                 System.out.println("Ati actionat butonul: 'Clear'");
 
             }
