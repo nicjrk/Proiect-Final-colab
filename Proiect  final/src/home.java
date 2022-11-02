@@ -17,13 +17,18 @@ public  class home {
     private JButton btnExit;
     private JButton btnClear;
     private JButton btnEnter;
-    
-     public home() {
+
+   private double total;
+   private double subTotal = 0;
+   private final double TvaRate = 0.02;
+   private double tva;
+
+    public home() {
         radSpania.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if(radSpania.isSelected())
+                if (radSpania.isSelected())
                     radBulgaria.setSelected(false);
                 radGermania.setSelected(false);
                 System.out.println("Ati selectionat destinatia: 'Spania'");
@@ -34,7 +39,7 @@ public  class home {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if(radBulgaria.isSelected())
+                if (radBulgaria.isSelected())
                     radSpania.setSelected(false);
                 radGermania.setSelected(false);
                 System.out.println("Ati selectionat destinatia: 'Bulgaria'");
@@ -43,7 +48,7 @@ public  class home {
         radGermania.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(radGermania.isSelected())
+                if (radGermania.isSelected())
                     radBulgaria.setSelected(false);
                 radSpania.setSelected(false);
                 System.out.println("Ati selectionat destinatia: 'Germania'");
@@ -54,37 +59,36 @@ public  class home {
             public void actionPerformed(ActionEvent e) {
                 DecimalFormat df = new DecimalFormat("0.00");
 
-                double total;
-                double subtotal= 0;
-                final double TvaRate=0.02;
-                double tva;
 
-                if(radSpania.isSelected()){
-                    subtotal = subtotal + 150.0;
-                }else if(radBulgaria.isSelected()){
-                    subtotal = subtotal + 50.0;
-                }else if(radGermania.isSelected()){
-                    subtotal = subtotal + 100.0;
+
+                if (radSpania.isSelected()) {
+                    subTotal = subTotal + 150.0;
+                } else if (radBulgaria.isSelected()) {
+                    subTotal = subTotal + 50.0;
+                } else if (radGermania.isSelected()) {
+                    subTotal = subTotal + 100.0;
                 }
-                if(chkBussinesClass.isSelected()){
-                    subtotal = subtotal + 200.0;
-                }if(chkBagajDeCala.isSelected()){
-                    subtotal = subtotal + 50.0;
-                }if(chkMancareLaBord.isSelected()){
-                    subtotal = subtotal + 25.0;
+                if (chkBussinesClass.isSelected()) {
+                    subTotal = subTotal + 200.0;
+                }
+                if (chkBagajDeCala.isSelected()) {
+                    subTotal = subTotal + 50.0;
+                }
+                if (chkMancareLaBord.isSelected()) {
+                    subTotal = subTotal + 25.0;
                 }
 
-                txtSub.setText(Double.toHexString(subtotal));
+                txtSub.setText(Double.toHexString(subTotal));
 
-                subtotal = Double.parseDouble(txtSub.getText());
-                tva = subtotal * TvaRate;
-                total = tva + subtotal;
+                subTotal = Double.parseDouble(txtSub.getText());
+                tva = subTotal * TvaRate;
+                total = tva + subTotal;
 
                 txtTax.setText(Double.toString(tva));
                 txtTotal.setText(Double.toString(total));
 
                 txtTax.setText(df.format(tva));
-                txtSub.setText(df.format(subtotal));
+                txtSub.setText(df.format(subTotal));
                 txtTotal.setText(df.format(total));
                 System.out.println("Ati actionat butonul: 'Enter'");
             }
@@ -113,10 +117,23 @@ public  class home {
             }
         });
     }
+    
+    public double getTotal(){
+        return total;
+    }
+    public double getSubTotal(){
+        return  subTotal;
+    }
+    public final double getTvaRate(){
+        return TvaRate;
+    }
+    public double getTva(){
+        return tva;
+    }
 
-    public JPanel getPanel1(){
+    public JPanel getPanel1() {
         return panel1;
 
+    }
+
 }
-
-
